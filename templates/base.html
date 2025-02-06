@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or "Cryptocurrency Price Predictor" }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-purple-100">
+    <nav class="bg-purple-700 p-4">
+        <div class="container mx-auto">
+            <a class="text-white text-lg font-bold" href="/">Cryptocurrency Price Predictor</a>
+        </div>
+    </nav>
+    <main class="container mx-auto mt-4 max-w-4xl sm:w-11/12 md:w-10/12 ">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="text-center py-4 bg-purple-700 text-white mt-5">
+        <p>2025 Cryptocurrency Price Predictor (Project)</p>
+    </footer>
+</body>
+</html>

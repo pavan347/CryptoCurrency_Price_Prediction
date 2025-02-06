@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center mb-4">
+    <h1 class="text-4xl font-bold">Cryptocurrency Price Predictor</h1>
+    <p class="text-lg">Predict the future prices of cryptocurrencies with AI-powered models.</p>
+</div>
+<div class="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6">
+    <h5 class="text-center text-xl font-semibold mb-4">Enter Prediction Details</h5>
+    <form id="predictionForm" method="post" action="/" class="space-y-4">
+        <div>
+            <label for="stock" class="block text-sm font-medium text-gray-700">Stock Ticker</label>
+            <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" id="stock" name="stock" placeholder="e.g., BTC-USD" required>
+        </div>
+        <div>
+            <label for="no_of_days" class="block text-sm font-medium text-gray-700">Number of Days to Predict</label>
+            <input type="number" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" id="no_of_days" name="no_of_days" min="1" max="100" value="10" required>
+        </div>
+        <button type="submit" class="w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700">Predict</button>
+    </form>
+</div>
+
+<!-- Loading Spinner -->
+<div id="loadingSpinner" class="w-full flex flex-col justify-center items-center mt-4 hidden">
+    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-purple-600"></div>
+    <p class="mt-2 text-center">Processing your request. Please wait...</p>
+</div>
+
+<script>
+    // Add event listener to show the loading spinner when the form is submitted
+    document.getElementById('predictionForm').addEventListener('submit', function () {
+        document.getElementById('loadingSpinner').classList.remove('hidden');
+    });
+</script>
+{% endblock %}

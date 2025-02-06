@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block content %}
+<div class="mx-auto w-full bg-white shadow-md rounded-lg p-6">
+  <h2 class="text-center mb-4 text-2xl font-bold">
+    Prediction Results for <strong class="text-purple-700">{{ stock }}</strong>
+  </h2>
+  {% if error %}
+  <div class="alert alert-danger text-center bg-red-500 text-white p-4 rounded mb-4">
+    {{ error }}
+  </div>
+  {% else %}
+  <div class="mb-4">
+    <h4 class="text-xl font-semibold">Original Closing Prices Over Time</h4>
+    <div class="text-center">
+      <img
+        src="{{ original_plot }}"
+        class="img-fluid rounded shadow-sm mx-auto"
+        alt="Original Plot"
+      />
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <h4 class="text-xl font-semibold">Original vs Predicted Test Data</h4>
+    <div class="text-center">
+      <img
+        src="{{ predicted_plot }}"
+        class="img-fluid rounded shadow-sm mx-auto"
+        alt="Predicted Plot"
+      />
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <h4 class="text-xl font-semibold">Future Close Price Predictions</h4>
+    <div class="text-center">
+      <img
+        src="{{ future_plot }}"
+        class="img-fluid rounded shadow-sm mx-auto"
+        alt="Future Predictions Plot"
+      />
+    </div>
+  </div>
+
+  <h5 class="mt-4 text-lg font-semibold">Future Predictions Table</h5>
+  <table class="table-auto text-center w-full mt-2 mb-5">
+    <thead class="bg-gray-800 text-white">
+      <tr>
+        <th class="px-4 py-2">Day</th>
+        <th class="px-4 py-2">Predicted Close Price {{ stock[-3:] }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for day, price in enumerate(future_predictions, start=1) %}
+      <tr class="bg-gray-100 border-b">
+        <td class="px-4 py-2">{{ day }}</td>
+        <td class="px-4 py-2">{{ price | round(2) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+  <a
+    href="/"
+    class="btn btn-secondary mt-4 bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-600 text-center"
+    >Back to Home</a
+  >
+</div>
+{% endblock %}
