@@ -8,6 +8,12 @@ __pycache__/
 
 SETUP.md
 model.keras
+CCPP.zip
+
+# Project Files
+templates
+app.py
+train.ipynb
 
 # Distribution / packaging
 .Python

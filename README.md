@@ -39,3 +39,6 @@ An AI-powered Flask web application that predicts cryptocurrency prices using hi
 2. Specify the number of future days to predict.
 3. Click "Predict."
 4. View the results, including plots and predicted prices.
+
+## Contact
+For any quires or if you need the project source code or documentation please feel free to contact at [pavankumargarapati04@gmail.com](mailto:pavankumargarapati04@gmail.com).
